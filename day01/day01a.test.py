@@ -6,7 +6,7 @@ f = open("day01.sample.txt", "r");
 text = f.read();
 f.close();
 
-class TestP6(unittest.TestCase):
+class TestDay01(unittest.TestCase):
     def test_a(self):
         self.assertEqual(get_calibration_value(text),142)
 
