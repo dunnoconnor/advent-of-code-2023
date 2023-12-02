@@ -21,7 +21,7 @@ def get_possible_games(text:str) -> int:
         game = parse('Game {:d}', game)[0];
         rounds = l[0].split(";");
         id_total += check_game(game,rounds);
-        print(game, id_total)
+        print(game, id_total);
 
     return id_total;
 
@@ -30,11 +30,11 @@ def check_game(game:int, rounds:list) -> int:
         pull = pull.split(",");
         for die in pull:
             die = die.strip();
-            p = parse('{:d} {:w}', die)
-            num=p[0]
-            color=p[1]
+            p = parse('{:d} {:w}', die);
+            num=p[0];
+            color=p[1];
             if(num>limits[color]):
-                print(num, color, " is too many")
+                print(num, color, " is too many");
                 return 0;
     return game;
 

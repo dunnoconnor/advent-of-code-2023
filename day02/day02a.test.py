@@ -8,7 +8,7 @@ f.close();
 
 class TestDay01(unittest.TestCase):
     def test_a(self):
-        self.assertEqual(get_possible_games(text),8)
+        self.assertEqual(get_possible_games(text),8);
 
 if __name__ == '__main__':
     unittest.main()
