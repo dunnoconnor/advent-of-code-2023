@@ -4,13 +4,11 @@ from readfile import read_file
 from Card import Card
 from Deck import Deck
 
-text = read_file("day04.sample.txt");
-cards = []
+text = read_file("day04.data.txt");
 
 def count_cards(t:str) -> int:
     re_nums = re.compile(r'\d+');
     unique_cards = {};
-    deck = Deck();
 
     for line in t:
         line = line.split(":");
@@ -21,12 +19,16 @@ def count_cards(t:str) -> int:
         # print(card_num,win_nums,your_nums);
         this_card = Card(int(card_num[0]),list(map(int,win_nums)),list(map(int,your_nums)));
         unique_cards[this_card.id]=this_card;
-        deck.add_card(this_card);
-    
+
     for key in unique_cards:
         c:Card = unique_cards[key];
-        for i in range(1,c.wins):
-            deck.add_card(unique_cards[c.id+i]);
-    return len(deck.cards);
+        for i in range(1,c.wins+1):
+            unique_cards[c.id+i].count += c.count;
+    
+    total = 0;
+    for key in unique_cards:
+        total += unique_cards[key].count;
+    
+    return total
 
 print(count_cards(text))
