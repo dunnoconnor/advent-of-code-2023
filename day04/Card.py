@@ -6,7 +6,7 @@ class Card:
         self.wins = self.get_wins();
         self.value = self.get_value();
   
-    def get_wins(self):
+    def get_wins(self) -> int:
         win_count = 0;
         for num in self.your_nums:
             if num in self.win_nums:
