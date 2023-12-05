@@ -10,7 +10,7 @@ class Seed:
         self.hum=None;
         self.loc=None;
 
-    def set_attribute(self,convs:list,s_att_name:str,d_att_name:str) -> None:
+    def set_attribute(self,convs:list,s_att_name:str,d_att_name:str) -> tuple:
         s_att = getattr(self, s_att_name);
         for c in convs:
             if s_att in range(c.source,c.source+c.ran):
