@@ -30,5 +30,4 @@ def count_cards(t:str) -> int:
         total += unique_cards[key].count;
     
     return total
-
 print(count_cards(text))

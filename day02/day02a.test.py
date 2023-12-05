@@ -1,5 +1,5 @@
 import unittest
-from day02.day02a import get_possible_games
+from day02a import get_possible_games
 
 # open file, read data, split by newline
 f = open("day01.sample.txt", "r");
