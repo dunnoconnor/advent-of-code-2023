@@ -1,7 +1,7 @@
 
 from readfile import read_file
 import re
-import numpy
+from math import sqrt, floor, ceil, prod
 
 text = read_file("day06.data.txt");
 
@@ -13,14 +13,21 @@ def get_possible_wins(t:list) -> list:
     distance = "".join(re_nums.findall(d_line));
     print(time,distance)
     wins = get_races(int(time),int(distance));
+    return int(wins);
+
+
+def get_races(time:int,dist:int) -> int:
+    # translating inputs for quadratic formula
+    a = -1;
+    b= time;
+    c = -dist;
+    low_bound, high_boundary = quadratic(a,b,c);
+    wins = high_boundary - low_bound;
     return wins;
 
-def get_races(t:int,d:int):
-    wins =0;
-    for i in range(1,t):
-        race = (t-i)*i;
-        if race>d:
-            wins+=1;
-    return wins;
+def quadratic(a:int,b:int,c:int) ->(int,int):
+    first  = (-b + sqrt(b*b-4*a*c)) / (2*a);
+    second = (-b - sqrt(b*b-4*a*c)) / (2*a)-1;
+    return (floor(first),ceil(second))
 
 print(get_possible_wins(text))
