@@ -21,11 +21,13 @@ def get_races(time:int,dist:int) -> int:
     a = -1;
     b= time;
     c = -dist;
-    low_bound, high_boundary = quadratic(a,b,c);
-    wins = high_boundary - low_bound;
+    # quadratic formula gives range of wins
+    low_bound, high_bound = quadratic(a,b,c);
+    wins = high_bound - low_bound;
     return wins;
 
 def quadratic(a:int,b:int,c:int) ->(int,int):
+    # ax^2 + bx +c
     first  = (-b + sqrt(b*b-4*a*c)) / (2*a);
     second = (-b - sqrt(b*b-4*a*c)) / (2*a)-1;
     return (floor(first),ceil(second))
